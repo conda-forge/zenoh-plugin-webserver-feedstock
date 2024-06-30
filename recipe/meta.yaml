@@ -20,8 +20,7 @@ requirements:
     # required as on Linux unwind's rust functionality depends on gcc_s library
     - {{ compiler('c') }}
   host:
-    # for some reason  {{ version }}.{{ rust_compiler_version }} does not work
-    - zenoh-rust-abi {{ version }}.1.79.0
+    - zenoh-rust-abi {{ version }}.{{ rust_compiler_version }} 
 test:
   commands:
     - test -f ${PREFIX}/lib/libzenoh_plugin_webserver${SHLIB_EXT}  # [unix]
