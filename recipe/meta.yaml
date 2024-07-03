@@ -12,10 +12,9 @@ source:
 build:
   number: 0
 
+# We use a multi-output recipe even if this recipe is single output as otherwise (at least in June 2024)
+# the {{ version }}.{{ rust_compiler_version }} expression did not render correctly
 outputs:
-  # This is just a meta packages used to capture the exact version of zenoh (to which a unique Cargo.lock
-  # used for all dependencies is associated) and the rust compiler version used, to capture the exacti ABI
-  # of the zenoh plugins, and ensure that at runtime incompatible zenohd and plugins are never installed.
   - name: {{ name }}
     script: build_plugin.sh  # [unix]
     script: bld_plugin.bat  # [win]
