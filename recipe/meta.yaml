@@ -22,6 +22,7 @@ outputs:
       build:
         - {{ compiler('rust') }}
         - {{ stdlib('c') }}
+        - cargo-bundle-licenses
         # required as on Linux unwind's rust functionality depends on gcc_s library
         - {{ compiler('c') }}
       host:
