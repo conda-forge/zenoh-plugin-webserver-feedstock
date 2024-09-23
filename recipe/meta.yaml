@@ -2,7 +2,7 @@
 {% set version = "0.11.0" %}
 
 package:
-  name: {{ name }}
+  name: {{ name }}-split
   version: {{ version }}
 
 source:
@@ -12,20 +12,25 @@ source:
 build:
   number: 0
 
-requirements:
-  build:
-    - {{ compiler('rust') }}
-    - {{ stdlib('c') }}
-    - cargo-bundle-licenses
-    # required as on Linux unwind's rust functionality depends on gcc_s library
-    - {{ compiler('c') }}
-  host:
-    # for some reason  {{ version }}.{{ rust_compiler_version }} does not work
-    - zenoh-rust-abi {{ version }}.1.79.0
-test:
-  commands:
-    - test -f ${PREFIX}/lib/libzenoh_plugin_webserver${SHLIB_EXT}  # [unix]
-    - if not exist %PREFIX%\\Library\\bin\\zenoh_plugin_webserver.dll exit 1  # [win]
+# We use a multi-output recipe even if this recipe is single output as otherwise (at least in June 2024)
+# the {{ version }}.{{ rust_compiler_version }} expression did not render correctly
+outputs:
+  - name: {{ name }}
+    script: build_plugin.sh  # [unix]
+    script: bld_plugin.bat  # [win]
+    requirements:
+      build:
+        - {{ compiler('rust') }}
+        - {{ stdlib('c') }}
+        - cargo-bundle-licenses
+        # required as on Linux unwind's rust functionality depends on gcc_s library
+        - {{ compiler('c') }}
+      host:
+        - zenoh-rust-abi {{ version }}.{{ rust_compiler_version }}
+    test:
+      commands:
+        - test -f ${PREFIX}/lib/libzenoh_plugin_webserver${SHLIB_EXT}  # [unix]
+        - if not exist %PREFIX%\\Library\\bin\\zenoh_plugin_webserver.dll exit 1  # [win]
 
 about:
   home: https://github.com/eclipse-zenoh/zenoh-plugin-webserver
