@@ -1,5 +1,5 @@
 {% set name = "zenoh-plugin-webserver" %}
-{% set version = "0.11.0" %}
+{% set version = "1.0.0" %}
 
 package:
   name: {{ name }}-split
@@ -7,7 +7,7 @@ package:
 
 source:
   - url: https://github.com/eclipse-zenoh/zenoh-plugin-webserver/archive/refs/tags/{{ version }}.tar.gz
-    sha256: 483cee2c6c15189219d663ff1353621b91941c10730e2381b724a3509b2917c5
+    sha256: 285c59cfc971a350b738ad7d2c761929b54cd5229809d40fb1f5f0bac56d0440
 
 build:
   number: 0
@@ -35,10 +35,10 @@ outputs:
 about:
   home: https://github.com/eclipse-zenoh/zenoh-plugin-webserver
   license: Apache-2.0 OR EPL-2.0
-  license_file: 
+  license_file:
     - LICENSE
     - THIRDPARTY.yml
-  summary:  A zenoh plug-in implementing an HTTP server mapping URLs to zenoh paths. This plugin can be used to set-up a Web server where the resources are retrieved from geo-distributed zenoh storages, each leveraging various backends (file system, database, memory...).
+  summary: A zenoh plug-in implementing an HTTP server mapping URLs to zenoh paths. This plugin can be used to set-up a Web server where the resources are retrieved from geo-distributed zenoh storages, each leveraging various backends (file system, database, memory...).
 
 extra:
   recipe-maintainers:
