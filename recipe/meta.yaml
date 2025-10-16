@@ -1,5 +1,5 @@
 {% set name = "zenoh-plugin-webserver" %}
-{% set version = "1.5.1" %}
+{% set version = "1.6.1" %}
 
 package:
   name: {{ name }}-split
@@ -7,7 +7,7 @@ package:
 
 source:
   - url: https://github.com/eclipse-zenoh/zenoh-plugin-webserver/archive/refs/tags/{{ version }}.tar.gz
-    sha256: f15cbae0d3c8583f484255e15c049a335b656588b6ea09de89ab564ca45768eb
+    sha256: 95883de3a2d515b28d32821ee6c0ecabdc510c73c51e42e0f03dabc15968e165
 
 build:
   number: 0
