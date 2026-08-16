@@ -1,5 +1,5 @@
-About zenoh-plugin-webserver-split-feedstock
-============================================
+About zenoh-plugin-webserver-feedstock
+======================================
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/zenoh-plugin-webserver-feedstock/blob/main/LICENSE.txt)
 
@@ -7,13 +7,24 @@ Home: https://github.com/eclipse-zenoh/zenoh-plugin-webserver
 
 Package license: Apache-2.0 OR EPL-2.0
 
-Summary: A zenoh plug-in implementing an HTTP server mapping URLs to zenoh paths. This plugin can be used to set-up a Web server where the resources are retrieved from geo-distributed zenoh storages, each leveraging various backends (file system, database, memory...).
+Summary: A zenoh plug-in implementing an HTTP server mapping URLs to zenoh paths.
+
+Development: https://github.com/eclipse-zenoh/zenoh-plugin-webserver
+
+This plugin can be used to set up a web server where resources are retrieved from geo-distributed zenoh storages, each leveraging various backends such as file systems, databases, and memory.
 
 Current build status
 ====================
 
 
-<table>
+<table><tr>
+    <td>GitHub Actions</td>
+    <td>
+      <a href="https://github.com/conda-forge/zenoh-plugin-webserver-feedstock/actions/workflows/conda-build.yml">
+        <img src="https://github.com/conda-forge/zenoh-plugin-webserver-feedstock/actions/workflows/conda-build.yml/badge.svg?event=push&branch=main">
+      </a>
+    </td>
+  </tr>
     
   <tr>
     <td>Azure</td>
@@ -27,27 +38,6 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_64</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=22712&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/zenoh-plugin-webserver-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_aarch64</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=22712&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/zenoh-plugin-webserver-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_ppc64le</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=22712&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/zenoh-plugin-webserver-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
               <td>osx_64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=22712&branchName=main">
@@ -59,13 +49,6 @@ Current build status
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=22712&branchName=main">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/zenoh-plugin-webserver-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>win_64</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=22712&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/zenoh-plugin-webserver-feedstock?branchName=main&jobName=win&configuration=win%20win_64_" alt="variant">
                 </a>
               </td>
             </tr>
@@ -83,41 +66,83 @@ Current release info
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-zenoh--plugin--webserver-green.svg)](https://anaconda.org/conda-forge/zenoh-plugin-webserver) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/zenoh-plugin-webserver.svg)](https://anaconda.org/conda-forge/zenoh-plugin-webserver) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/zenoh-plugin-webserver.svg)](https://anaconda.org/conda-forge/zenoh-plugin-webserver) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/zenoh-plugin-webserver.svg)](https://anaconda.org/conda-forge/zenoh-plugin-webserver) |
 
-Installing zenoh-plugin-webserver-split
-=======================================
+Installing zenoh-plugin-webserver
+=================================
 
-Installing `zenoh-plugin-webserver-split` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `zenoh-plugin-webserver` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
 
 ```
 conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `zenoh-plugin-webserver` can be installed with `conda`:
+How to use
+----------
+
+<details>
+<summary>With conda</summary>
 
 ```
 conda install zenoh-plugin-webserver
 ```
 
-or with `mamba`:
+</details>
+
+<details>
+<summary>With mamba</summary>
 
 ```
 mamba install zenoh-plugin-webserver
 ```
 
-It is possible to list all of the versions of `zenoh-plugin-webserver` available on your platform with `conda`:
+</details>
+
+<details>
+<summary>With pixi</summary>
+
+```
+# for adding to your local project
+pixi add zenoh-plugin-webserver
+# for installing globally
+pixi global install zenoh-plugin-webserver
+```
+
+</details>
+
+Search package versions
+-----------------------
+
+It is possible to list all of the versions of `zenoh-plugin-webserver` available on your platform:
+
+<details>
+<summary>With conda</summary>
 
 ```
 conda search zenoh-plugin-webserver --channel conda-forge
 ```
 
-or with `mamba`:
+</details>
+
+<details>
+<summary>With mamba</summary>
 
 ```
 mamba search zenoh-plugin-webserver --channel conda-forge
 ```
 
-Alternatively, `mamba repoquery` may provide more information:
+</details>
+
+<details>
+<summary>With pixi</summary>
+
+```
+pixi search zenoh-plugin-webserver --channel conda-forge
+```
+
+</details>
+
+<details>
+<summary>With mamba repoquery, which may provide more information</summary>
 
 ```
 # Search all versions available on your platform:
@@ -129,6 +154,8 @@ mamba repoquery whoneeds zenoh-plugin-webserver --channel conda-forge
 # List dependencies of `zenoh-plugin-webserver`:
 mamba repoquery depends zenoh-plugin-webserver --channel conda-forge
 ```
+
+</details>
 
 
 About conda-forge
@@ -172,17 +199,17 @@ Terminology
                   produce the finished article (built conda distributions)
 
 
-Updating zenoh-plugin-webserver-split-feedstock
-===============================================
+Updating zenoh-plugin-webserver-feedstock
+=========================================
 
-If you would like to improve the zenoh-plugin-webserver-split recipe or build a new
+If you would like to improve the zenoh-plugin-webserver recipe or build a new
 package version, please fork this repository and submit a PR. Upon submission,
 your changes will be run on the appropriate platforms to give the reviewer an
 opportunity to confirm that the changes result in a successful build. Once
 merged, the recipe will be re-built and uploaded automatically to the
 `conda-forge` channel, whereupon the built conda packages will be available for
 everybody to install and use from the `conda-forge` channel.
-Note that all branches in the conda-forge/zenoh-plugin-webserver-split-feedstock are
+Note that all branches in the conda-forge/zenoh-plugin-webserver-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
 on branches in forks, and branches in the main repository should only be used to
 build distinct package versions.
