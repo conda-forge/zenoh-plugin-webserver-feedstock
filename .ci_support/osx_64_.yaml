@@ -19,6 +19,6 @@ macos_machine:
 rust_compiler:
 - rust
 rust_compiler_version:
-- 1.93.1
+- 1.97.1
 target_platform:
 - osx-64

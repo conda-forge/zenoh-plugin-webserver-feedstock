@@ -1,6 +1,6 @@
 context:
   name: zenoh-plugin-webserver
-  version: "1.9.0"
+  version: "1.10.0"
 
 package:
   name: ${{ name }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/eclipse-zenoh/zenoh-plugin-webserver/archive/refs/tags/${{ version }}.tar.gz
-  sha256: 124407be257c82925036afe347a19d6e8c2f0653e5a8ddd152f456c1538027ac
+  sha256: 82f0fcc19f2d73e6236bbfe6dd4e39bba0b274e741be92174073fd9c6d57f042
 
 build:
   number: 0
