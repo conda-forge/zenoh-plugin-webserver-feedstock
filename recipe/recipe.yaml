@@ -1,0 +1,53 @@
+context:
+  name: zenoh-plugin-webserver
+  version: "1.7.2"
+
+package:
+  name: ${{ name }}
+  version: ${{ version }}
+
+source:
+  url: https://github.com/eclipse-zenoh/zenoh-plugin-webserver/archive/refs/tags/${{ version }}.tar.gz
+  sha256: 32e000844195ad755bcb5dc7f490bc78ff2dcad3df9600fb91e336a8502036e3
+
+build:
+  number: 1
+  script:
+    - if: unix
+      then: build_plugin.sh
+    - if: win
+      then: build_plugin.bat
+
+requirements:
+  build:
+    - ${{ compiler('rust') }}
+    - ${{ stdlib('c') }}
+    - cargo-bundle-licenses
+    # On Linux, Rust's unwind support depends on the gcc_s library.
+    - ${{ compiler('c') }}
+  host:
+    - zenoh-rust-abi ==${{ version }}.${{ rust_compiler_version }}
+
+tests:
+  - script:
+      - if: unix
+        then: test -f "${PREFIX}/lib/libzenoh_plugin_webserver${SHLIB_EXT}"
+      - if: win
+        then: if not exist "%PREFIX%\Library\bin\zenoh_plugin_webserver.dll" exit 1
+
+about:
+  homepage: https://github.com/eclipse-zenoh/zenoh-plugin-webserver
+  repository: https://github.com/eclipse-zenoh/zenoh-plugin-webserver
+  license: Apache-2.0 OR EPL-2.0
+  license_file:
+    - LICENSE
+    - THIRDPARTY.yml
+  summary: A zenoh plug-in implementing an HTTP server mapping URLs to zenoh paths.
+  description: >-
+    This plugin can be used to set up a web server where resources are retrieved
+    from geo-distributed zenoh storages, each leveraging various backends such as
+    file systems, databases, and memory.
+
+extra:
+  recipe-maintainers:
+    - traversaro
