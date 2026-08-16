@@ -14,9 +14,9 @@ build:
   number: 1
   script:
     - if: unix
-      then: bash build_plugin.sh
+      then: build_plugin.sh
     - if: win
-      then: call build_plugin.bat
+      then: build_plugin.bat
 
 requirements:
   build:
