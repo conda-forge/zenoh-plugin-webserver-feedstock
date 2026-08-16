@@ -11,7 +11,7 @@ source:
   sha256: 32e000844195ad755bcb5dc7f490bc78ff2dcad3df9600fb91e336a8502036e3
 
 build:
-  number: 0
+  number: 1
   script:
     - if: unix
       then: bash build_plugin.sh
