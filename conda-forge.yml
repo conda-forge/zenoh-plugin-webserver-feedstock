@@ -4,6 +4,8 @@ build_platform:
   linux_ppc64le: linux_64
 conda_build:
   error_overlinking: true
+conda_install_tool: pixi
+rattler_build: true
 conda_forge_output_validation: true
 github:
   branch_name: main
